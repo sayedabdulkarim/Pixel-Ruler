@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Ruler</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="../icons/icon48.png" alt="Ruler" class="header-icon">
+      <p class="author">❤️&nbsp;&nbsp;&nbsp;by Sayed Abdul Karim</p>
+    </div>
+
+    <div class="mode-section">
+      <label>Mode:</label>
+      <div class="mode-buttons">
+        <button id="measureMode" class="mode-btn active" data-mode="measure">
+          <span class="icon">📏</span>
+          Measure
+        </button>
+        <button id="elementMode" class="mode-btn" data-mode="element">
+          <span class="icon">🎯</span>
+          Element
+        </button>
+        <button id="guidesMode" class="mode-btn" data-mode="guides">
+          <span class="icon">📐</span>
+          Guides
+        </button>
+      </div>
+    </div>
+
+    <div class="unit-section">
+      <label>Unit:</label>
+      <select id="unitSelect">
+        <option value="px">Pixels (px)</option>
+        <option value="rem">REM</option>
+        <option value="percent">Percentage (%)</option>
+        <option value="vw">Viewport Width (vw)</option>
+        <option value="vh">Viewport Height (vh)</option>
+      </select>
+    </div>
+
+    <div class="options-section">
+      <label>
+        <input type="checkbox" id="showGrid">
+        Show Grid Overlay
+      </label>
+      <div class="grid-size" id="gridSizeContainer" style="display: none;">
+        <label>Grid Size:</label>
+        <input type="number" id="gridSize" value="10" min="5" max="100"> px
+      </div>
+    </div>
+
+    <div class="color-section">
+      <label>Ruler Color:</label>
+      <input type="color" id="rulerColor" value="#3498db">
+    </div>
+
+    <div class="actions">
+      <button id="activateBtn" class="primary-btn">Activate Ruler</button>
+      <button id="clearBtn" class="secondary-btn">Clear All</button>
+    </div>
+
+    <div class="shortcuts">
+      <h3>Shortcuts</h3>
+      <ul>
+        <li><kbd>ESC</kbd> - Deactivate/Cancel</li>
+        <li><kbd>C</kbd> - Clear measurements</li>
+        <li><kbd>G</kbd> - Toggle grid</li>
+        <li><kbd>1-5</kbd> - Switch units</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+/* Main Overlay */
+#page-ruler-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  pointer-events: none;
+  z-index: 2147483646;
+  display: none;
+}
+
+#page-ruler-overlay.active {
+  display: block;
+  pointer-events: auto;
+  cursor: crosshair;
+}
+
+#page-ruler-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Measurement rectangles */
+.measurement-rect {
+  cursor: move;
+}
+
+.measurement-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.measurement-text-bg {
+  pointer-events: none;
+}
+
+/* Tooltip */
+#page-ruler-tooltip {
+  position: fixed;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 6px;
+  z-index: 2147483647;
+  pointer-events: none;
+  max-width: 300px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#page-ruler-tooltip strong {
+  color: #3498db;
+}
+
+/* Ruler Bars */
+.page-ruler-bar {
+  position: fixed;
+  background: #2c3e50;
+  z-index: 2147483644;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-ruler-bar.active {
+  display: block;
+}
+
+#page-ruler-h {
+  top: 0;
+  left: 20px;
+  right: 0;
+  height: 20px;
+}
+
+#page-ruler-v {
+  left: 0;
+  top: 20px;
+  bottom: 0;
+  width: 20px;
+}
+
+.ruler-tick {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#page-ruler-h .ruler-tick {
+  width: 1px;
+  height: 6px;
+  bottom: 0;
+}
+
+#page-ruler-h .ruler-tick.major {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#page-ruler-v .ruler-tick {
+  height: 1px;
+  width: 6px;
+  right: 0;
+}
+
+#page-ruler-v .ruler-tick.major {
+  width: 10px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.ruler-label {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 9px;
+  font-family: monospace;
+}
+
+#page-ruler-h .ruler-label {
+  top: 2px;
+  left: 3px;
+}
+
+#page-ruler-v .ruler-label {
+  left: 2px;
+  top: 3px;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* Guide Lines */
+.page-ruler-guide {
+  position: fixed;
+  z-index: 2147483643;
+  cursor: move;
+}
+
+.page-ruler-guide.horizontal {
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px dashed #e74c3c;
+}
+
+.page-ruler-guide.vertical {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-left: 1px dashed #e74c3c;
+}
+
+.page-ruler-guide::after {
+  content: '×';
+  position: absolute;
+  color: #e74c3c;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.page-ruler-guide:hover::after {
+  opacity: 1;
+}
+
+.page-ruler-guide.horizontal::after {
+  right: 25px;
+  top: -8px;
+}
+
+.page-ruler-guide.vertical::after {
+  bottom: 25px;
+  left: -5px;
+}
+
+/* Grid Overlay */
+#page-ruler-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2147483642;
+}
+
+/* Element Highlight */
+#page-ruler-element-highlight {
+  box-sizing: border-box;
+  transition: all 0.1s ease;
+}
